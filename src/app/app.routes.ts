@@ -5,7 +5,14 @@ import { AiConfigPageComponent } from './ai-config-page/ai-config-page.component
 
 export const routes: Routes = [
   { path: 'index', component: HomePageComponent },
-  { path: 'config', component: AiConfigPageComponent },
+  { path: 'config', 
+    component: AiConfigPageComponent,
+    children: [
+      { path: 'chat', component: AiConfigPageComponent },
+      { path: 'fim', component: AiConfigPageComponent },
+      { path: 'model', component: AiConfigPageComponent },
+    ] 
+  },
   { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
